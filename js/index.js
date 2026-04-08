@@ -45,7 +45,7 @@ function displayCountries(countries){
 
     countries.forEach(country => {
         const card = document.createElement("article");
-        console.log(country);
+   
         
         card.innerHTML = `
         <img src="${country.flags.png}" alt="${country.name}"/>
@@ -63,3 +63,19 @@ function displayCountries(countries){
 }
 
 fetchCountries()
+
+
+function filteredCountries(){
+     const searchInfo = searchInput.value.toLowerCase()
+     const region = regionFilter.value;
+    
+     const filtered = allCountries.filter(country =>{
+        const matchSearch = country.name.toLowerCase().includes(searchInfo)
+        const matchRegion = region === "all" || country.region === region
+        return matchRegion && matchSearch
+    })
+    displayCountries(filtered)
+}
+
+searchInput.addEventListener("input",filteredCountries)
+searchInput.addEventListener("change",filteredCountries)
