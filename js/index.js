@@ -10,3 +10,13 @@ const flex = document.querySelector("#countries-flex")
 let allCountries = []
 
 // Bloque 3 - Light / Dark Mode
+
+themeToggle.addEventListener("click", () => {
+    const isDark = document.body.dataset.theme === "dark"
+    
+    if(isDark){
+        document.body.removeAttribute("data-theme")
+    }else{
+        document.body.dataset.theme = "dark"
+    }
+})

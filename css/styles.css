@@ -2,3 +2,8 @@
 
     font-family: "Nunito Sans", sans-serif;
 }
+
+[data-theme="dark"]{
+    background-color: #000;
+    color: #fff;
+}
